@@ -20,7 +20,7 @@ interface MapComponentType {
   lng: number;
 }
 
-export default function MapComponent({ lat, lng }: MapComponentType) {
+function MapComponent({ lat, lng }: MapComponentType) {
 
   return (
     <div className='h-[70%] sm:h-[75%]'>
@@ -43,3 +43,5 @@ export default function MapComponent({ lat, lng }: MapComponentType) {
     </div>
   );
 }
+
+export default MapComponent;
