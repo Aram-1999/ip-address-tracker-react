@@ -1,75 +1,24 @@
-# React + TypeScript + Vite
+# IP Address Tracker (React Version)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my React-based solution to the IP Address Tracker challenge on Frontend Mentor. The application is a single-page interface that displays detailed information about an IP address or domain name, including its location, time zone, and ISP. When the page loads, the app automatically fetches and displays data for the user’s own IP address.
 
-Currently, two official plugins are available:
+Users can enter any IP address or domain into the search field, and the page will update the displayed information accordingly. A dynamic Leaflet map re-centers based on the fetched coordinates, and a loading Spinner component ensures a smooth experience while data is being retrieved. The UI combines a SearchInput, interactive MapComponent, and an information Banner, all connected inside the main App component for clean structure and maintainability. Here is a [link](https://ip-address-tracker-at.netlify.app/) to the website deployed on Netlify.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![desktop view of the app](./src/assets/ip-address-tracker-at.netlify.app_.png)
 
-## React Compiler
+## Core Features
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+### Input Validation
 
-Note: This will impact Vite dev & build performances.
+All user inputs are validated before triggering an API request, ensuring that only properly formatted IP addresses or domain names are processed. Invalid inputs return a clear error state and prevent unnecessary network calls.
 
-## Expanding the ESLint configuration
+### Data Fetching
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+The app fetches geolocation data both on initial load and on each user search. API interactions are cleanly abstracted, allowing the UI to update seamlessly based on whichever data was retrieved.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Application Integration
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+The App component coordinates all application logic—validating input, fetching data, and rendering UI elements. The SearchInput, Banner, MapComponent, and Spinner components work together to create a fully responsive and intuitive user experience.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Author
+Aram Torosyan

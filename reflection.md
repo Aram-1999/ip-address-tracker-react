@@ -1,0 +1,7 @@
+# Reflection
+
+Throughout the development of this project, I focused on transforming an existing implementation into a more scalable and maintainable React application. One of the main challenges I encountered involved TypeScript, particularly with typing props and structuring reusable components. While TypeScript adds a layer of safety, it also required more attention—especially when passing coordinates to the map component or defining types for API responses. Another issue arose with the map rendering in React-Leaflet; when I deployed the project, the custom location marker failed to load correctly. After some debugging, I discovered that the asset path was not compatible with the production environment, so I reverted to the default Leaflet icon, which resolved the issue.
+
+Beyond these obstacles, the rest of the conversion process was relatively smooth. Breaking the application into components—such as the search input, map, banner, and spinner—made the structure much clearer compared to my original single-file approach. This modular design not only improved readability but also made testing and updating individual features more efficient. I also introduced a custom hook for API fetching, which helped avoid rewriting repetitive fetch logic and provided a cleaner, more React-friendly way to handle data retrieval.
+
+Looking forward, I could enhance the project by adding more robust error handling, improving input validation, and incorporating animations or transitions for a smoother user experience.
